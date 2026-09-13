@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import crypto from "crypto";
 
-import dbConnect from "@/lib/mongodb";
+import {dbConnect} from "@/lib/mongodb";
 import User from "@/models/User";
 import VerificationToken from "@/models/VerificationToken";
 import sendVerificationEmail from "@/lib/sendVerificationEmail";
