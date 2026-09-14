@@ -201,7 +201,7 @@ export default function CartPage() {
                               <Minus size={13} />
                             </button>
 
-                            <span className="w-4 text-center text-sm font-medium tabular-nums">
+                            <span className="w-4 text-[#1F2420] text-center text-sm font-medium tabular-nums">
                               {item.quantity}
                             </span>
 
