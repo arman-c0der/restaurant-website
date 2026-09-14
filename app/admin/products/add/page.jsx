@@ -181,7 +181,7 @@ export default function AddProductPage() {
 
       toast.success("Product added successfully!");
 
-      "Created product:", data.product);
+
 
       resetForm();
     } catch (error) {
