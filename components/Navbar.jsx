@@ -23,7 +23,6 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const { data: session, status } = useSession();
-  console.log('session', session)
 
   return (
     <header className="sticky top-0 z-50 w-full bg-[#F2F1EC]">

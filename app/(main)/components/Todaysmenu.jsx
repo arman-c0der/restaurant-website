@@ -12,7 +12,7 @@ export default async function TodaysMenu() {
   // Adjust the right-hand field names below to match your actual
   // Product schema (e.g. item.category?.name, item.prepTime, item.badge).
   const menuItems = products.map((item) => ({
-    id: item._id,
+    id: item._id.toString(),
     name: item.name,
     image: item.image || item.images?.[0] || "/items/placeholder.png",
     badge: item.badge || null,

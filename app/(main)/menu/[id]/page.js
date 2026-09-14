@@ -54,65 +54,52 @@ export default function ProductDetailsPage() {
     if (params.id) loadProduct();
   }, [params.id, router]);
 
- async function addToCart() {
-  try {
-    console.log("🛒 ADD TO CART CLICKED");
-    console.log("Product:", product);
-    console.log("Product ID:", product?._id);
-    console.log("Quantity:", quantity);
+  async function addToCart() {
+    try {
+      setAdding(true);
 
-    setAdding(true);
+      const res = await fetch("/api/cart", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          productId: product._id,
+          quantity,
+        }),
+      });
 
-    const res = await fetch("/api/cart", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        productId: product._id,
-        quantity,
-      }),
-    });
+      const data = await res.json();
 
-    console.log("API STATUS:", res.status);
+      if (res.status === 401) {
+        toast.error("Please login first");
+        router.push("/login");
+        return false;
+      }
 
-    const data = await res.json();
+      if (!data.success) {
+        toast.error(data.message || "Failed to add to cart");
+        return false;
+      }
 
-    console.log("API RESPONSE:", data);
+      toast.success("Added to cart");
 
-    if (res.status === 401) {
-      toast.error("Please login first");
-      router.push("/login");
+      return true;
+    } catch (error) {
+      toast.error("Something went wrong");
       return false;
+    } finally {
+      setAdding(false);
     }
+  }
 
-    if (!data.success) {
-      console.log("❌ CART ERROR:", data.message);
-      toast.error(data.message || "Failed to add to cart");
-      return false;
+  async function orderNow() {
+    const success = await addToCart();
+
+    if (success) {
+      router.push("/cart");
     }
-
-    console.log("✅ CART SUCCESS");
-
-    toast.success("Added to cart");
-
-    return true;
-  } catch (error) {
-    console.error("❌ Add to cart error:", error);
-    toast.error("Something went wrong");
-    return false;
-  } finally {
-    setAdding(false);
   }
-}
-
-async function orderNow() {
-  const success = await addToCart();
-
-  if (success) {
-    router.push("/cart");
-  }
-}
 
   if (loading) {
     return (

@@ -37,7 +37,7 @@ export default function MenuGrid({ items }) {
           whileHover={{ y: -6 }}
           transition={{ type: "spring", stiffness: 300, damping: 22 }}
         >
-          <MenuCard item={menuItem} />
+          <MenuCard item={menuItem} key={menuItem.id} />
         </motion.div>
       ))}
     </motion.div>

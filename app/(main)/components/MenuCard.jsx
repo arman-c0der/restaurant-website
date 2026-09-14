@@ -17,6 +17,8 @@ import {
 export function MenuCard({ item }) {
   const router = useRouter();
 
+  const productId = item._id || item.id;
+
   const [qty, setQty] = useState(0);
   const [liked, setLiked] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -25,7 +27,7 @@ export function MenuCard({ item }) {
   // OPEN PRODUCT DETAILS
   // =========================
   function openDetails() {
-    router.push(`/menu/${item._id}`);
+    router.push(`/menu/${productId}`);
   }
 
   // =========================
@@ -41,7 +43,7 @@ export function MenuCard({ item }) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          productId: item._id,
+          productId,
           quantity,
         }),
       });
@@ -107,7 +109,7 @@ export function MenuCard({ item }) {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            productId: item._id,
+            productId,
           }),
         });
 
@@ -141,7 +143,7 @@ export function MenuCard({ item }) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          productId: item._id,
+          productId,
           quantity: newQuantity,
         }),
       });
