@@ -27,8 +27,8 @@ export default function MenuGrid({ items }) {
       className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6"
       variants={container}
       initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.2 }}
+      animate="show"
+     
     >
       {items.map((menuItem) => (
         <motion.div
