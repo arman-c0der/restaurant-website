@@ -90,3 +90,29 @@ export async function deleteProduct(id) {
     return { success: false, error: "Failed to delete product" };
   }
 }
+
+export async function getProductById(id) {
+  try {
+    await dbConnect();
+
+    if (!id) {
+      return { success: false, error: "Invalid product ID" };
+    }
+
+    const product = await Product.findById(id)
+      .populate("category", "name")
+      .lean();
+
+    if (!product) {
+      return { success: false, error: "Product not found" };
+    }
+
+    return {
+      success: true,
+      product: JSON.parse(JSON.stringify(product)),
+    };
+  } catch (error) {
+    console.error("getProductById error:", error);
+    return { success: false, error: "Failed to fetch product" };
+  }
+}
