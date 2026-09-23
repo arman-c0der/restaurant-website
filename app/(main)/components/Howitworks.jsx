@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import {m } from "framer-motion";
 import { Search, UtensilsCrossed, Package, Bike } from "lucide-react";
 
 const STEPS = [
@@ -73,7 +73,7 @@ export default function HowItWorks() {
     <section className="w-full bg-[#F2F1EC]" id="how-it-works">
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-10 lg:py-24">
         {/* Header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
@@ -89,10 +89,10 @@ export default function HowItWorks() {
           >
             How it works
           </h2>
-        </motion.div>
+        </m.div>
 
         {/* Steps */}
-        <motion.div
+        <m.div
           className="relative mt-16"
           variants={container}
           initial="hidden"
@@ -100,7 +100,7 @@ export default function HowItWorks() {
           viewport={{ once: true, amount: 0.2 }}
         >
           {/* connecting line (desktop only) */}
-          <motion.div
+          <m.div
             variants={lineVariant}
             className="absolute left-0 right-0 top-6 hidden h-px origin-left bg-[#1F2420]/15 lg:block"
             style={{
@@ -111,19 +111,19 @@ export default function HowItWorks() {
 
           <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
             {STEPS.map(({ number, icon: Icon, title, description }, idx) => (
-              <motion.div
+              <m.div
                 key={number}
                 variants={stepVariant}
                 className="group relative"
               >
                 <div className="flex items-center gap-4">
-                  <motion.div
+                  <m.div
                     variants={iconVariant}
                     whileHover={{ scale: 1.08 }}
                     className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#1F2420] shadow-[0_0_0_5px_#F2F1EC] transition-shadow duration-300 group-hover:shadow-[0_0_0_5px_#F2F1EC,0_0_0_7px_#C97A2B55]"
                   >
                     <Icon className="h-5 w-5 text-white" strokeWidth={1.8} />
-                  </motion.div>
+                  </m.div>
 
                   <span
                     className="text-3xl text-[#1F2420]/10 sm:hidden lg:block"
@@ -146,10 +146,10 @@ export default function HowItWorks() {
                 {idx < STEPS.length - 1 && (
                   <div className="mt-6 h-px w-12 bg-[#1F2420]/15 sm:block lg:hidden" />
                 )}
-              </motion.div>
+              </m.div>
             ))}
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

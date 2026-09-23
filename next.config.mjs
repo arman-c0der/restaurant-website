@@ -1,12 +1,22 @@
+import withBundleAnalyzer from "@next/bundle-analyzer";
+
+const bundleAnalyzer = withBundleAnalyzer({
+  enabled: process.env.ANALYZE === "true",
+});
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    optimizePackageImports: ['recharts', 'lucide-react'],
+    serverComponentsExternalPackages: ['cloudinary'],
+  },
   images: {
     remotePatterns: [
       {
         protocol: "https",
         hostname: "lh3.googleusercontent.com",
       },
-       {
+      {
         protocol: "https",
         hostname: "res.cloudinary.com",
       },
@@ -14,4 +24,4 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+export default bundleAnalyzer(nextConfig);

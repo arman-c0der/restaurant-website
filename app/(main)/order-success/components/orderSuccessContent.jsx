@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { motion } from "framer-motion";
+import {m } from "framer-motion";
 import { Check, ArrowRight, ClipboardList } from "lucide-react";
 
 export default function OrderSuccessContent() {
@@ -18,13 +18,13 @@ export default function OrderSuccessContent() {
         @import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap");
       `}</style>
 
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className="max-w-lg w-full text-center rounded-3xl border border-[#E7E2D8] bg-white p-10"
       >
-        <motion.div
+        <m.div
           initial={{ scale: 0.4, opacity: 0, rotate: -20 }}
           animate={{ scale: 1, opacity: 1, rotate: 0 }}
           transition={{
@@ -36,7 +36,7 @@ export default function OrderSuccessContent() {
           className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#2F4A3D]"
         >
           <Check className="h-7 w-7 text-white" strokeWidth={2.5} />
-        </motion.div>
+        </m.div>
 
         <h1
           className="mt-6 text-3xl text-[#1F2420]"
@@ -78,7 +78,7 @@ export default function OrderSuccessContent() {
             View my orders
           </Link>
         </div>
-      </motion.div>
+      </m.div>
     </main>
   );
 }

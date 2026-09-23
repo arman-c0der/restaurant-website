@@ -31,6 +31,7 @@ export default function WhyDabba() {
             fill
             sizes="(max-width: 1024px) 90vw, 45vw"
             className="object-contain object-bottom"
+            priority
           />
         </div>
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import {m } from "framer-motion";
 import { useSession } from "next-auth/react";
 import {
   DollarSign,
@@ -99,7 +99,7 @@ export default function AdminDashboardPage() {
   ];
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
@@ -115,7 +115,7 @@ export default function AdminDashboardPage() {
       {/* Stat cards */}
       <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {cards.map((stat, i) => (
-          <motion.div
+          <m.div
             key={stat.label}
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -137,13 +137,13 @@ export default function AdminDashboardPage() {
                 <stat.icon className="h-5 w-5" />
               </div>
             </div>
-          </motion.div>
+          </m.div>
         ))}
       </div>
 
       {/* Charts */}
       <div className="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-2">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.4 }}
@@ -167,9 +167,9 @@ export default function AdminDashboardPage() {
               />
             </LineChart>
           </ResponsiveContainer>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.45 }}
@@ -187,8 +187,8 @@ export default function AdminDashboardPage() {
               <Bar dataKey="orders" fill="#2563eb" radius={[4, 4, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
-        </motion.div>
+        </m.div>
       </div>
-    </motion.div>
+    </m.div>
   );
 }

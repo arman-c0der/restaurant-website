@@ -3,7 +3,7 @@
 import { useEffect, useState, useCallback, useTransition } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import {m, AnimatePresence } from "framer-motion";
 import {
   Search,
   Pencil,
@@ -169,7 +169,7 @@ export default function AdminProductsPage() {
               ) : (
                 <AnimatePresence mode="popLayout">
                   {products.map((product) => (
-                    <motion.tr
+                    <m.tr
                       key={product._id}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
@@ -234,7 +234,7 @@ export default function AdminProductsPage() {
                           </button>
                         </div>
                       </td>
-                    </motion.tr>
+                    </m.tr>
                   ))}
                 </AnimatePresence>
               )}
@@ -271,14 +271,14 @@ export default function AdminProductsPage() {
       {/* Delete confirm modal */}
       <AnimatePresence>
         {deleteTarget && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4"
             onClick={() => setDeleteTarget(null)}
           >
-            <motion.div
+            <m.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
@@ -306,8 +306,8 @@ export default function AdminProductsPage() {
                   {isPending ? "Deleting..." : "Delete"}
                 </button>
               </div>
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
         )}
       </AnimatePresence>
     </div>

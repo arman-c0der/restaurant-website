@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import {m } from "framer-motion";
 
 export default function VerifyEmailContent() {
   const searchParams = useSearchParams();
@@ -60,7 +60,7 @@ export default function VerifyEmailContent() {
 
   return (
     <div className="flex min-h-screen w-full items-center justify-center bg-gray-50 px-4">
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 25, scale: 0.97 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.5 }}
@@ -122,7 +122,7 @@ export default function VerifyEmailContent() {
             </Link>
           </>
         )}
-      </motion.div>
+      </m.div>
     </div>
   );
 }

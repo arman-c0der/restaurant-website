@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useInView, animate } from "framer-motion";
+import { m, useInView, animate } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Package, Star } from "lucide-react";
@@ -52,7 +52,7 @@ export default function Hero() {
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-5 py-10 sm:px-8 lg:grid-cols-2 lg:gap-10 lg:px-10 lg:py-16">
         {/* Left: copy */}
         <div>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -60,9 +60,9 @@ export default function Hero() {
           >
             <span className="h-1.5 w-1.5 rounded-full bg-black" />
             <span>Home-cooked · Made fresh daily</span>
-          </motion.div>
+          </m.div>
 
-          <motion.h1
+          <m.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -71,9 +71,9 @@ export default function Hero() {
             Good food,
             <br />
             honestly made.
-          </motion.h1>
+          </m.h1>
 
-          <motion.p
+          <m.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -82,9 +82,9 @@ export default function Hero() {
             Every dish is prepared fresh with quality ingredients and bold
             flavours — cooked with care, delivered fast, so every bite feels
             like home.
-          </motion.p>
+          </m.p>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -103,11 +103,11 @@ export default function Hero() {
             >
               See how it works
             </Link>
-          </motion.div>
+          </m.div>
 
           <dl ref={statsRef} className="mt-10 grid grid-cols-4 gap-4 sm:gap-8">
             {STATS.map((stat, i) => (
-              <motion.div
+              <m.div
                 key={stat.label}
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -120,13 +120,13 @@ export default function Hero() {
                 <dd className="mt-1 text-xs text-black/50 sm:text-sm">
                   {stat.label}
                 </dd>
-              </motion.div>
+              </m.div>
             ))}
           </dl>
         </div>
 
         {/* Right: hero image */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.1 }}
@@ -144,7 +144,7 @@ export default function Hero() {
           </div>
 
           {/* Top-left floating info card */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
@@ -161,10 +161,10 @@ export default function Hero() {
                 Packed 7:40 AM
               </p>
             </div>
-          </motion.div>
+          </m.div>
 
           {/* Bottom-right floating rating card */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
@@ -181,8 +181,8 @@ export default function Hero() {
                 3,100+ reviews
               </p>
             </div>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </div>
     </section>
   );

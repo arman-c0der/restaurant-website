@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import {m } from "framer-motion";
 import { MenuCard } from "./MenuCard";
 
 const container = {
@@ -23,7 +23,7 @@ const item = {
 
 export default function MenuGrid({ items }) {
   return (
-    <motion.div
+    <m.div
       className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6"
       variants={container}
       initial="hidden"
@@ -31,15 +31,15 @@ export default function MenuGrid({ items }) {
      
     >
       {items.map((menuItem) => (
-        <motion.div
+        <m.div
           key={menuItem.id}
           variants={item}
           whileHover={{ y: -6 }}
           transition={{ type: "spring", stiffness: 300, damping: 22 }}
         >
           <MenuCard item={menuItem} key={menuItem.id} />
-        </motion.div>
+        </m.div>
       ))}
-    </motion.div>
+    </m.div>
   );
 }

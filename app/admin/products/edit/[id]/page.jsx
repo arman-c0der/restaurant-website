@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import {m } from "framer-motion";
 import toast from "react-hot-toast";
 import { ImagePlus, Loader2, PenSquare, ArrowLeft } from "lucide-react";
 
@@ -183,7 +183,7 @@ export default function EditProductPage() {
   }
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
@@ -215,7 +215,7 @@ export default function EditProductPage() {
       </div>
 
       {/* Main Card */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.45, delay: 0.1 }}
@@ -230,7 +230,7 @@ export default function EditProductPage() {
           </p>
         </div>
 
-        <motion.form
+        <m.form
           onSubmit={handleSubmit}
           initial="hidden"
           animate="show"
@@ -238,7 +238,7 @@ export default function EditProductPage() {
           className="flex flex-col gap-6 p-6 sm:p-8"
         >
           {/* Image Upload */}
-          <motion.div variants={fieldVariants}>
+          <m.div variants={fieldVariants}>
             <label className="mb-2.5 block text-sm font-semibold text-black">
               Item Image
             </label>
@@ -286,10 +286,10 @@ export default function EditProductPage() {
               onChange={handleImageChange}
               className="hidden"
             />
-          </motion.div>
+          </m.div>
 
           {/* Product Name */}
-          <motion.div variants={fieldVariants}>
+          <m.div variants={fieldVariants}>
             <label htmlFor="name" className="mb-2.5 block text-sm font-semibold text-black">
               Product Name
             </label>
@@ -302,10 +302,10 @@ export default function EditProductPage() {
               placeholder="e.g. Classic Beef Burger"
               className="w-full rounded-xl border border-black/10 bg-black/[0.015] px-4 py-3.5 text-sm text-black outline-none transition-all placeholder:text-black/30 hover:border-black/20 focus:border-black focus:bg-white focus:ring-4 focus:ring-black/5"
             />
-          </motion.div>
+          </m.div>
 
           {/* Price + Category */}
-          <motion.div variants={fieldVariants} className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+          <m.div variants={fieldVariants} className="grid grid-cols-1 gap-5 sm:grid-cols-2">
             <div>
               <label htmlFor="price" className="mb-2.5 block text-sm font-semibold text-black">
                 Price ($)
@@ -344,10 +344,10 @@ export default function EditProductPage() {
                 ))}
               </select>
             </div>
-          </motion.div>
+          </m.div>
 
           {/* Tag + Time */}
-          <motion.div variants={fieldVariants} className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+          <m.div variants={fieldVariants} className="grid grid-cols-1 gap-5 sm:grid-cols-2">
             <div>
               <label htmlFor="tag" className="mb-2.5 block text-sm font-semibold text-black">
                 Tag (optional)
@@ -375,10 +375,10 @@ export default function EditProductPage() {
                 className="w-full rounded-xl border border-black/10 bg-black/[0.015] px-4 py-3.5 text-sm text-black outline-none transition-all hover:border-black/20 focus:border-black focus:bg-white focus:ring-4 focus:ring-black/5"
               />
             </div>
-          </motion.div>
+          </m.div>
 
           {/* Description */}
-          <motion.div variants={fieldVariants}>
+          <m.div variants={fieldVariants}>
             <label htmlFor="description" className="mb-2.5 block text-sm font-semibold text-black">
               Description (optional)
             </label>
@@ -390,11 +390,11 @@ export default function EditProductPage() {
               rows={4}
               className="w-full resize-none rounded-xl border border-black/10 bg-black/[0.015] px-4 py-3.5 text-sm text-black outline-none transition-all hover:border-black/20 focus:border-black focus:bg-white focus:ring-4 focus:ring-black/5"
             />
-          </motion.div>
+          </m.div>
 
        
          {/* Availability toggle */}
-<motion.div variants={fieldVariants} className="flex items-center gap-3">
+<m.div variants={fieldVariants} className="flex items-center gap-3">
   <button
     type="button"
     onClick={() =>
@@ -414,10 +414,10 @@ export default function EditProductPage() {
   <span className="whitespace-nowrap text-sm font-medium text-black">
     {form.isAvailable ? "Available" : "Unavailable"}
   </span>
-</motion.div>
+</m.div>
 
           {/* Submit */}
-          <motion.button
+          <m.button
             variants={fieldVariants}
             type="submit"
             disabled={submitting}
@@ -433,9 +433,9 @@ export default function EditProductPage() {
             ) : (
               "Save Changes"
             )}
-          </motion.button>
-        </motion.form>
-      </motion.div>
-    </motion.div>
+          </m.button>
+        </m.form>
+      </m.div>
+    </m.div>
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import {
   ArrowRight,
   Sandwich,
@@ -68,7 +68,7 @@ export default function FoodCategories() {
         </div>
 
         {/* Category grid */}
-        <motion.div
+        <m.div
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
@@ -76,7 +76,7 @@ export default function FoodCategories() {
           className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6"
         >
           {CATEGORIES.map(({ label, slug, icon: Icon }) => (
-            <motion.div key={label} variants={cardVariants}>
+            <m.div key={label} variants={cardVariants}>
               <Link
                 href={`/menu?category=${slug}`}
                 className="flex flex-col items-center rounded-2xl bg-white px-4 py-8 text-center shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md"
@@ -89,9 +89,9 @@ export default function FoodCategories() {
                 </p>
                 <p className="mt-1 text-xs text-black/40">Available</p>
               </Link>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
 
         {/* Mobile-only "see full menu" link */}
         <div className="mt-8 flex justify-center sm:hidden">

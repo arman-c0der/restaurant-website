@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
+import {m } from "framer-motion";
 import { signOut } from "next-auth/react";
 import {
   LayoutDashboard,
@@ -24,7 +24,7 @@ export default function AdminSidebar() {
   const pathname = usePathname();
 
   return (
-    <motion.aside
+    <m.aside
       initial={{ x: -24, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
@@ -42,7 +42,7 @@ export default function AdminSidebar() {
           return (
             <Link key={href} href={href} className="relative block">
               {active && (
-                <motion.span
+                <m.span
                   layoutId="admin-active-link"
                   className="absolute inset-0 rounded-xl bg-black"
                   transition={{ type: "spring", stiffness: 350, damping: 30 }}
@@ -69,6 +69,6 @@ export default function AdminSidebar() {
         <LogOut className="h-4 w-4" />
         Sign Out
       </button>
-    </motion.aside>
+    </m.aside>
   );
 }

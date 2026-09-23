@@ -4,7 +4,7 @@ import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import {m } from "framer-motion";
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -70,7 +70,7 @@ export default function RegisterPage() {
   return (
     <div className="min-h-screen w-full bg-gray-50 px-4 py-10">
       <div className="flex min-h-screen items-center justify-center">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 35, scale: 0.97 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{
@@ -82,7 +82,7 @@ export default function RegisterPage() {
           {/* Register Card */}
           <div className="rounded-3xl border border-black/5 bg-white p-7 shadow-[0_20px_60px_rgba(0,0,0,0.08)] sm:p-9">
             {/* Heading */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -97,11 +97,11 @@ export default function RegisterPage() {
               <p className="mt-2 text-sm text-black/55">
                 Create your account to get started
               </p>
-            </motion.div>
+            </m.div>
 
             {/* Error Message */}
             {error && (
-              <motion.p
+              <m.p
                 initial={{
                   opacity: 0,
                   height: 0,
@@ -115,11 +115,11 @@ export default function RegisterPage() {
                 className="mt-5 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600"
               >
                 {error}
-              </motion.p>
+              </m.p>
             )}
 
             {/* Register Form */}
-            <motion.form
+            <m.form
               onSubmit={handleSubmit}
               className="mt-7 flex flex-col gap-5"
               initial="hidden"
@@ -134,7 +134,7 @@ export default function RegisterPage() {
               }}
             >
               {/* Name */}
-              <motion.div
+              <m.div
                 variants={{
                   hidden: {
                     opacity: 0,
@@ -163,10 +163,10 @@ export default function RegisterPage() {
                   required
                   className="w-full rounded-xl border border-black/10 bg-gray-50 px-4 py-3.5 text-sm text-black outline-none transition-all duration-300 placeholder:text-black/30 focus:border-black focus:bg-white focus:ring-4 focus:ring-black/5"
                 />
-              </motion.div>
+              </m.div>
 
               {/* Email */}
-              <motion.div
+              <m.div
                 variants={{
                   hidden: {
                     opacity: 0,
@@ -195,10 +195,10 @@ export default function RegisterPage() {
                   required
                   className="w-full rounded-xl border border-black/10 bg-gray-50 px-4 py-3.5 text-sm text-black outline-none transition-all duration-300 placeholder:text-black/30 focus:border-black focus:bg-white focus:ring-4 focus:ring-black/5"
                 />
-              </motion.div>
+              </m.div>
 
               {/* Password */}
-              <motion.div
+              <m.div
                 variants={{
                   hidden: {
                     opacity: 0,
@@ -228,10 +228,10 @@ export default function RegisterPage() {
                   minLength={6}
                   className="w-full rounded-xl border border-black/10 bg-gray-50 px-4 py-3.5 text-sm text-black outline-none transition-all duration-300 placeholder:text-black/30 focus:border-black focus:bg-white focus:ring-4 focus:ring-black/5"
                 />
-              </motion.div>
+              </m.div>
 
               {/* Register Button */}
-              <motion.button
+              <m.button
                 type="submit"
                 disabled={loading}
                 variants={{
@@ -253,11 +253,11 @@ export default function RegisterPage() {
                 className="mt-1 rounded-xl bg-black px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-black/10 transition-all duration-300 hover:bg-black/90 disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {loading ? "Creating account..." : "Create Account"}
-              </motion.button>
-            </motion.form>
+              </m.button>
+            </m.form>
 
             {/* Divider */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{
@@ -273,10 +273,10 @@ export default function RegisterPage() {
               </span>
 
               <span className="h-px flex-1 bg-black/10" />
-            </motion.div>
+            </m.div>
 
             {/* Google Button */}
-            <motion.button
+            <m.button
               type="button"
               onClick={() =>
                 signIn("google", {
@@ -305,10 +305,10 @@ export default function RegisterPage() {
               className="w-full rounded-xl border border-black/10 bg-white px-6 py-3.5 text-sm font-semibold text-black transition-all duration-300"
             >
               Continue with Google
-            </motion.button>
+            </m.button>
 
             {/* Login Link */}
-            <motion.p
+            <m.p
               initial={{
                 opacity: 0,
               }}
@@ -328,9 +328,9 @@ export default function RegisterPage() {
               >
                 Login
               </Link>
-            </motion.p>
+            </m.p>
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </div>
   );

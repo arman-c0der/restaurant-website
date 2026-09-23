@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import {m, AnimatePresence } from "framer-motion";
 import toast from "react-hot-toast";
 import {
   Heart,
@@ -165,7 +165,7 @@ export function MenuCard({ item }) {
   }
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -186,6 +186,7 @@ export function MenuCard({ item }) {
           fill
           sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 23vw"
           className="object-cover transition-transform duration-500 hover:scale-105"
+          
         />
 
         {item.badge && (
@@ -195,7 +196,7 @@ export function MenuCard({ item }) {
         )}
 
         {/* Favourite */}
-        <motion.button
+        <m.button
           aria-label="Add to favourites"
           onClick={(e) => {
             e.stopPropagation();
@@ -205,7 +206,7 @@ export function MenuCard({ item }) {
           whileTap={{ scale: 0.9 }}
           className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-white shadow-sm"
         >
-          <motion.span
+          <m.span
             animate={{
               scale: liked ? [1, 1.3, 1] : 1,
             }}
@@ -218,8 +219,8 @@ export function MenuCard({ item }) {
                   : "text-black"
               }`}
             />
-          </motion.span>
-        </motion.button>
+          </m.span>
+        </m.button>
       </div>
 
       {/* =========================
@@ -267,7 +268,7 @@ export function MenuCard({ item }) {
         {/* Add / Quantity */}
         <AnimatePresence mode="wait" initial={false}>
           {qty === 0 ? (
-            <motion.button
+            <m.button
               key="add"
               onClick={handleAdd}
               disabled={loading || !item.available}
@@ -295,9 +296,9 @@ export function MenuCard({ item }) {
               <Plus className="h-3.5 w-3.5" />
 
               {loading ? "Adding..." : "Add"}
-            </motion.button>
+            </m.button>
           ) : (
-            <motion.div
+            <m.div
               key="stepper"
               initial={{
                 opacity: 0,
@@ -330,7 +331,7 @@ export function MenuCard({ item }) {
                   mode="popLayout"
                   initial={false}
                 >
-                  <motion.span
+                  <m.span
                     key={qty}
                     initial={{
                       y: 10,
@@ -350,7 +351,7 @@ export function MenuCard({ item }) {
                     className="absolute inset-0 flex items-center justify-center text-sm font-semibold"
                   >
                     {qty}
-                  </motion.span>
+                  </m.span>
                 </AnimatePresence>
               </span>
 
@@ -363,10 +364,10 @@ export function MenuCard({ item }) {
               >
                 <Plus className="h-3.5 w-3.5" />
               </button>
-            </motion.div>
+            </m.div>
           )}
         </AnimatePresence>
       </div>
-    </motion.div>
+    </m.div>
   );
 }

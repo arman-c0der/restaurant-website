@@ -12,6 +12,7 @@ export default function MenuHero() {
             priority
             sizes="100vw"
             className="object-cover"
+          
           />
 
           {/* Overlay */}

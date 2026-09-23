@@ -4,7 +4,7 @@ import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import {m } from "framer-motion";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -71,7 +71,7 @@ const handleSubmit = async (e) => {
   return (
     <div className="min-h-screen w-full bg-gray-200 px-4 py-10">
       <div className="flex min-h-screen items-center justify-center">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 35, scale: 0.97 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{
@@ -83,7 +83,7 @@ const handleSubmit = async (e) => {
           {/* Login Card */}
           <div className="rounded-3xl border border-black/5 bg-white p-7 shadow-[0_20px_60px_rgba(0,0,0,0.08)] sm:p-9">
             {/* Heading */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -98,11 +98,11 @@ const handleSubmit = async (e) => {
               <p className="mt-2 text-sm text-black/55">
                 Sign in to your account
               </p>
-            </motion.div>
+            </m.div>
 
             {/* Error Message */}
             {error && (
-              <motion.div
+              <m.div
                 initial={{
                   opacity: 0,
                   height: 0,
@@ -119,11 +119,11 @@ const handleSubmit = async (e) => {
                 className="mt-5 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm leading-6 text-red-600"
               >
                 {error}
-              </motion.div>
+              </m.div>
             )}
 
             {/* Login Form */}
-            <motion.form
+            <m.form
               onSubmit={handleSubmit}
               className="mt-7 flex flex-col gap-5"
               initial="hidden"
@@ -138,7 +138,7 @@ const handleSubmit = async (e) => {
               }}
             >
               {/* Email */}
-              <motion.div
+              <m.div
                 variants={{
                   hidden: {
                     opacity: 0,
@@ -168,10 +168,10 @@ const handleSubmit = async (e) => {
                   autoComplete="email"
                   className="w-full rounded-xl border border-black/10 bg-gray-50 px-4 py-3.5 text-sm text-black outline-none transition-all duration-300 placeholder:text-black/30 focus:border-black focus:bg-white focus:ring-4 focus:ring-black/5"
                 />
-              </motion.div>
+              </m.div>
 
               {/* Password */}
-              <motion.div
+              <m.div
                 variants={{
                   hidden: {
                     opacity: 0,
@@ -210,10 +210,10 @@ const handleSubmit = async (e) => {
                   autoComplete="current-password"
                   className="w-full rounded-xl border border-black/10 bg-gray-50 px-4 py-3.5 text-sm text-black outline-none transition-all duration-300 placeholder:text-black/30 focus:border-black focus:bg-white focus:ring-4 focus:ring-black/5"
                 />
-              </motion.div>
+              </m.div>
 
               {/* Login Button */}
-              <motion.button
+              <m.button
                 type="submit"
                 disabled={loading}
                 variants={{
@@ -235,11 +235,11 @@ const handleSubmit = async (e) => {
                 className="mt-1 rounded-xl bg-black px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-black/10 transition-all duration-300 hover:bg-black/90 disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {loading ? "Logging in..." : "Login"}
-              </motion.button>
-            </motion.form>
+              </m.button>
+            </m.form>
 
             {/* Divider */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{
@@ -255,10 +255,10 @@ const handleSubmit = async (e) => {
               </span>
 
               <span className="h-px flex-1 bg-black/10" />
-            </motion.div>
+            </m.div>
 
             {/* Google Login Button */}
-            <motion.button
+            <m.button
               type="button"
               onClick={handleGoogleLogin}
               initial={{
@@ -283,10 +283,10 @@ const handleSubmit = async (e) => {
               className="w-full rounded-xl border border-black/10 bg-white px-6 py-3.5 text-sm font-semibold text-black transition-all duration-300"
             >
               Continue with Google
-            </motion.button>
+            </m.button>
 
             {/* Register Link */}
-            <motion.p
+            <m.p
               initial={{
                 opacity: 0,
               }}
@@ -306,9 +306,9 @@ const handleSubmit = async (e) => {
               >
                 Register now
               </Link>
-            </motion.p>
+            </m.p>
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </div>
   );
