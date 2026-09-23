@@ -6,9 +6,9 @@ const bundleAnalyzer = withBundleAnalyzer({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  serverExternalPackages: ['cloudinary', 'mongoose', 'resend'],
   experimental: {
-    optimizePackageImports: ['recharts', 'lucide-react'],
-    serverComponentsExternalPackages: ['cloudinary'],
+    optimizePackageImports: ['lucide-react', 'framer-motion', 'react-icons'],
   },
   images: {
     remotePatterns: [
