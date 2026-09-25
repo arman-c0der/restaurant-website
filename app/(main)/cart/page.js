@@ -135,7 +135,7 @@ export default function CartPage() {
           </div>
         ) : (
           <div
-            className="grid lg:grid-cols-3 gap-12"
+            className="grid grid-cols-1 lg:grid-cols-3 gap-12 border border-amber-700"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
             <div className="lg:col-span-2">
