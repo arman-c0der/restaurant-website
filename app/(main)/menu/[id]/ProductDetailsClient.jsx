@@ -79,7 +79,7 @@ export default function ProductDetailsClient({ product }) {
     : null;
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
@@ -345,6 +345,6 @@ export default function ProductDetailsClient({ product }) {
           </div>
         </div>
       </div>
-    </motion.div>
+    </m.div>
   );
 }

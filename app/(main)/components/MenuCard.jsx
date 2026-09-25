@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 
 export function MenuCard({ item }) {
+  console.log(item , 'item')
   const router = useRouter();
 
   const productId = item._id || item.id;
