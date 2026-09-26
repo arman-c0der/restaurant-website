@@ -27,6 +27,7 @@ const ProductSchema = new mongoose.Schema(
       required: [true, "Product category is required"],
       trim: true,
       lowercase: true,
+        index: true, 
     },
 
     image: {

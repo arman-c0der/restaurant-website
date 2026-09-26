@@ -6,11 +6,13 @@ import { getProductsByCategory } from "../../../actions/getProducts";
 
 export default function ChickenFriesMenu() {
   const [chickenFries, setChickenFries] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
       const data = await getProductsByCategory("chicken-fries");
       setChickenFries(data);
+      setLoading(false);
     }
     fetchData();
   }, []);
@@ -27,9 +29,24 @@ export default function ChickenFriesMenu() {
         </h2>
 
         <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
-          {chickenFries.map((item) => (
-            <MenuCard key={item._id} item={item} />
-          ))}
+          {loading ? (
+            Array.from({ length: 4 }).map((_, i) => (
+              <div
+                key={i}
+                className="animate-pulse rounded-3xl border border-gray-200 overflow-hidden"
+              >
+                <div className="aspect-square w-full bg-gray-200" />
+                <div className="p-3 space-y-2">
+                  <div className="h-4 bg-gray-200 rounded w-3/4" />
+                  <div className="h-3 bg-gray-200 rounded w-1/2" />
+                </div>
+              </div>
+            ))
+          ) : (
+            chickenFries.map((item) => (
+              <MenuCard key={item._id} item={item} />
+            ))
+          )}
         </div>
       </div>
     </section>

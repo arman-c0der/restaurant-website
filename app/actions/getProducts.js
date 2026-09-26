@@ -10,8 +10,10 @@ const PAGE_SIZE = 10;
 
 export async function getProductsByCategory(category) {
   await dbConnect();
-  const products = await Product.find({ category }).lean();
-  // ObjectId ke plain object e convert kora dorkar
+  const products = await Product.find({ category })
+    .select("name price image tag time rating available")
+    .limit(20)
+    .lean();
   return JSON.parse(JSON.stringify(products));
 }
 
